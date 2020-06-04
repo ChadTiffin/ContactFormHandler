@@ -57,6 +57,9 @@ if (isset($_SERVER['HTTP_REFERER'])) {
 				if ($field != "trap") {
 					//convert field key to label string
 					$label = ucwords(str_replace("_", " ", $field));
+					
+					if (gettype($value) == 'array') 
+						$value = "<ul><li>".implode("</li><li>", $value)."</li></ul>";
 
 					$message.= "
 						<tr>
